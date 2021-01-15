@@ -1,0 +1,60 @@
+package sist.com.exception;
+//오픈 소스 보기 전의 워밍업!!! 이해되는 듯 안되는 요런 거어어엇
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ExceptionEx2 {
+
+	public void noSuchElementException1() {    //node를 못 찾았을 때
+		
+		  ArrayList list = new ArrayList();           //Object배열이에오 
+		  list.add("승우최");                          //String
+		  list.add(24); 							  //Double
+		  list.add(10.5);
+		 
+	  	
+		//  if(list.get(1) instanceof Integer)
+		                               //     (String.valueOf(list.get(0)))); / 
+		                                    
+		                                    
+		System.out.println(Integer.parseInt(String.valueOf((Integer)list.get(1))));
+		    //Integer.parseInt 
+		     						
+		  								    //(Integer.parseInt((String)list.get(0)))
+											//= .toStrisg 배열이 나온다.
+											// 승우최는 문자열이 되지 않으니깐 Error
+											//24일때도 안된다. 
+	}
+	
+	
+	
+		public void noSuchElementException2() {
+			ArrayList<Double>list = new ArrayList<Double>();
+				/*
+			     * Double d = (Double)list.get(2);//Double로 형변환 System.out.println(d);
+			     */
+		list.add(10.9);
+		list.add(91.9);
+		list.add(21.9);
+		list.add(61.9);
+		list.add(91.9);
+		list.add(21.9);
+		list.add(61.9);
+		System.out.println(list);
+	//	System.out.println(list.get(9));
+		
+		Iterator<Double>it = list.iterator();
+		while(it.hasNext())       // 다음 배열이 있냐? 그러면 true  
+		System.out.println("it.next()"); // 무한 루프 제대로된 값은 (it.next())
+		
+	/*
+	 * System.out.println(it.next()); // .next란?본인호출 하고 그 다음 열 가리킴.(i++)랑 비슷해!
+	 * System.out.println(it.next());
+	 * System.out.println(it.next());
+	 */		//list.iterator // 반복 구조 입니다!
+	}
+	public static void main(String[] args) {
+		ExceptionEx2 e = new ExceptionEx2();
+		e.noSuchElementException1();
+	}
+}
